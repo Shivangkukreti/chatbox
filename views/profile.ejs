@@ -1,0 +1,37 @@
+
+<%- include("./include/headfile.ejs") %>
+
+
+<%- include("./include/navbar.ejs") %>
+
+<%- include("./include/flash.ejs") %>
+
+<form style="margin-left: 2vw;"  action="/chatbox/profile/search" method="get">
+    <label 
+     class="form-label d-flex col-5  mt-5">
+        <input placeholder="FIND USER..." style="min-width: 20vh;box-shadow: 5px 5px 10px;" type="text" name="username" class="form-control">
+        <button style="box-shadow: 5px 5px 10px;" class="btn btn-outline-dark">SEARCH</button>
+    </label>
+    
+</form>
+<div style="background-color: cadetblue;width: 95vw;margin-left: 2vw;;padding: 1%;;
+display: flex;flex-wrap: wrap;">
+
+    <img style="height: 30vh;width: 30vh;display: inline;" src="<%= me.dp %>" >
+    <div  style="font-size: 8vw;width: auto;height:10vh ;">@<%= me.username %> </div>
+    <div><hr><%= me.about %> <hr></div>
+    <% if (currentuser && currentuser.username==me.username) { %>
+     <a class="btn btn-outline-dark mx-2" href="/chatbox/<%= me.username %>/profile/edit">EDIT</a>
+    <% } %>
+    <a class="btn btn-outline-dark" href="/chatbox/<%= me.username %>/chat">MESSAGE</a>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

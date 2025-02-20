@@ -1,0 +1,41 @@
+<nav style="background-color: silver  !important;" class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand"  href="/"><i style="font-size: 5vh;"class="fa-solid fa-message"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/chatbox">WORLD</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chatbox/messages">MESSAGES</a>
+        </li>
+        <% if (currentuser) { %>
+         <li class="nav-item">
+          <a class="nav-link" href="/chatbox/<%= currentuser.username %>/profile">PROFILE</a>
+        </li>
+        <% } %>
+        
+      </ul>
+      <ul class=" navbar-nav">
+        <% if (!currentuser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/chatbox/signup">SIGNUP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/chatbox/login">LOGIN</a>
+          </li>
+        <% } %>
+
+        <% if (currentuser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/chatbox/logout">LOGOUT</a>
+          </li>
+        <% } %>
+
+      </ul>
+    </div>
+  </div>
+</nav>

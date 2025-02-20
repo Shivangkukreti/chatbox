@@ -1,0 +1,31 @@
+
+<%- include("./include/headfile.ejs") %>
+
+
+<%- include("./include/navbar.ejs") %>
+
+<%- include("./include/flash.ejs") %>
+
+
+
+<form action="/chatbox/signup" method="post" novalidate class="needs-validation row mt-5 offset-3">
+    <h2>SINGUP</h2>
+    <label class="form-label col-8" >USERNAME
+        <input type="text" required name="username" class="form-control ">
+    </label>
+    <label class="form-label col-8" >EMAIL
+        <input type="email" required name="email" class="form-control">
+    </label>
+    <label class="form-label col-8" >PASSWORD
+        <input required type="password" name="password" class="form-control">
+    </label>
+    <label >
+      <button style="width: 15vh;" class="btn btn-outline-dark offset-3">SUBMIT</button>
+  
+    </label>
+    
+</form>
+
+</body>
+<script src="/code.js"></script>
+</html>

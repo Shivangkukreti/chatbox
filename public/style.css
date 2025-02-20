@@ -1,0 +1,18 @@
+.card{
+    width: 20rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.nav-link{
+    font-weight: 800;
+}
+
+.nav-link:hover{
+    color: black;
+    font-size: 3vh;
+}

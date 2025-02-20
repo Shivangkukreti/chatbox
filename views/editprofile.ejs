@@ -1,0 +1,40 @@
+
+<%- include("./include/headfile.ejs") %>
+
+
+<%- include("./include/navbar.ejs") %>
+
+<%- include("./include/flash.ejs") %>
+
+<div >
+    <h2>EDIT</h2>
+  <form class=" needs-validation offset-1 mt-5 " novalidate 
+  action="/chatbox/<%= any.username %>/profile/edit" enctype="multipart/form-data" method="post">
+
+
+  <label class="form-label col-6 offset-1">USERNAME
+    <input name="newusername" class="form-control" type="text" value="<%= any.username %>">
+  </label>
+
+    <label class="form-label col-10">ABOUT
+    <textarea rows="7" class="form-control " name="about"><%= any.about %></textarea></label>
+
+    <label style="display: inline-block;" class="form-label col-8 ">DP 
+       <input class="form-control"  type="file" name="dp" ></label>
+
+
+        <button class="btn btn-outline-dark" >EDIT</button>
+    </form>  
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

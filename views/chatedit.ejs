@@ -1,0 +1,24 @@
+<%- include("./include/headfile.ejs") %>
+
+
+<%- include("./include/flash.ejs") %>
+
+
+<form class=" needs-validation" novalidate action="/chatbox/<%= username %>/chat/<%= any.id %>/edit" method="post">
+
+<label class="form-label col-6 mt-5 offset-3">EDIT THE MESSAGE
+    <textarea rows="7" class="form-control " name="msg"><%= any.msg %></textarea></label>
+    <br>
+    <button class="btn btn-outline-dark offset-6">EDIT</button>
+</form>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

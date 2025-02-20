@@ -1,0 +1,74 @@
+<%- include("./include/headfile.ejs") %>
+
+
+<%- include("./include/navbar.ejs") %>
+
+
+
+<div style="background-color: cadetblue;height: 10vh;width: 95vw;position: fixed;margin-left: 2vw;
+z-index: 1;font-size: 5vh;text-align: center;text-shadow: 5px 5px 10px;">
+    @<%=username%>
+    <hr>
+</div>
+
+<br><br>
+<div style="background-color: cadetblue;width: 95vw;margin-left: 2vw;min-height:72vh;padding: 1%;
+display: flex;flex-direction: column;">
+<br>
+<% for( let ele of all) { %>
+    <div class="card" 
+    <% if (currentuser && ele.from==currentuser.username) { %>
+ style="align-self: self-end"
+<% } %>>
+     
+        <div class="card-body">
+          <% if (currentuser && ele.from != currentuser.username) { %>
+           <h5 class="card-title"><a href="/chatbox/<%= ele.from%>/chat"><%= ele.from %></a></h5>
+          <% } %>
+          
+          <p class="card-text"><%= ele.msg %></p>
+          
+              <% if (currentuser && currentuser.username==ele.from) { %>
+
+                <div style="display: flex;margin: 1%;">
+                <a  href="/chatbox/<%= username %>/chat/<%= ele.id %>/edit" class="card-link btn btn-outline-dark mx-2">EDIT</a>
+          <form action="/chatbox/<%= username %>/chat/<%= ele.id %>/delete?_method=DELETE" method="post">
+            <button class="card-link card-link btn btn-outline-dark ">DELETE</button>
+          </form>  
+                </div>
+               
+                
+              <% } %>
+        </div>
+      </div>
+<div ></div>
+<div></div>
+<br>
+<% } %>
+
+
+
+ <%- include("./include/flash.ejs") %>
+
+</div>
+
+
+
+
+
+<nav class="navbar  fixed-bottom" style="height: 10vh;;background-color: silver !important;">
+    <div class="container-fluid">
+      <form action="/chatbox/<%= username %>/chat" method="post" class="d-flex offset-3 col-5" >
+        <input name="msg" class="form-control me-2 " type="text" >
+        <button class="btn btn-outline-success" type="submit">SEND</button>
+      </form>
+    </div>
+  </nav>
+
+ 
+
+  <div style="height: 10vh;">
+  </div>
+</body>
+<script src="/code.js"></script>
+</html>
