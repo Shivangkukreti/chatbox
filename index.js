@@ -175,7 +175,7 @@ app.get("/chatbox/:username/profile/edit",async(req,res)=>{
    
 })
 
-app.post("/chatbox/:username/profile/edit",upload.single('dp'),async(req,res)=>{
+app.put("/chatbox/:username/profile/edit",upload.single('dp'),async(req,res)=>{
     let {username}=req.params
     let {about,newusername}=req.body
     let anyuser= await user.findOne({username:newusername})
@@ -238,7 +238,7 @@ app.get("/chatbox/:id/edit",ifown,async(req,res)=>{
 })
 
 
-app.post("/chatbox/:id/edit",async (req,res)=>{
+app.put("/chatbox/:id/edit",async (req,res)=>{
     let {id}=req.params
     let {msg}=req.body
     await message.findByIdAndUpdate(id,{msg})
