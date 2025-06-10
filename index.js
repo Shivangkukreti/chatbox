@@ -210,7 +210,7 @@ app.get("/chatbox/messages",ifuser,async(req,res)=>{
     let all= await user.find()
     let x=[]
     for(let ele of all){
-        let any=await chat.find({to:ele.username})
+        let any=await chat.find({$or:[{from:ele.username ,to:req.user.username},{to:ele.username ,from:req.user.username}]})
         let latest=any.pop()
         if (latest) {
             x.unshift(latest)
